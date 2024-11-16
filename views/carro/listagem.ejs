@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../listagem.css">
+    <title>Listagem de Veículos</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Listagem de Veículos</h1>
+        <% if (status) { %>
+            <div class="alert alert-success alert-dismissible">
+                <button class="btn-close" data-bs-dismiss="alert"></button>
+                Cadastrado com <b>sucesso!</b>
+            </div>
+        <% } %>
+
+        <table class="table table-striped">
+            <tr>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Ano</th>
+                <th>Placa</th>
+                <th>Cor</th>
+                <th>Preço da Diária (R$)</th>
+                <th>Detalhes</th>
+            </tr>
+            <% carros.forEach(carro => { %>
+                <tr>
+                    <td><%= carro.marca %></td>
+                    <td><%= carro.modelo %></td>
+                    <td><%= carro.ano %></td>
+                    <td><%= carro.placa %></td>
+                    <td><%= carro.cor %></td>
+                    <td><%= carro.preco_diaria.toFixed(2) %></td>
+                    <td><a href="/carros/<%= carro.placa %>">Detalhar</a></td>
+                </tr>
+            <% }); %>
+        </table>
+    </div>
+</body>
+</html>

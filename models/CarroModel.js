@@ -5,7 +5,7 @@ const carroSchema = new Schema({
     marca: String,
     modelo: String,
     ano: Number,
-    placa: String,
+    placa: { type: String, unique: true },
     cor: String,
     preco_diaria: Number
 });

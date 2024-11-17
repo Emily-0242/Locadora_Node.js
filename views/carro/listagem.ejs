@@ -33,8 +33,13 @@
                     <td><%= carro.ano %></td>
                     <td><%= carro.placa %></td>
                     <td><%= carro.cor %></td>
-                    <td><%= carro.preco_diaria.toFixed(2) %></td>
-                    <td><a href="/carros/<%= carro.placa %>">Detalhar</a></td>
+                    <td>
+                        <%
+                            const carroDecimal = parseFloat(carro.preco_diaria);
+                        %>
+                        <%= carroDecimal.toFixed(2) %>
+                    </td>
+                    <td><a href="/carros/<%= carro.placa %>">Detalhar</a></td>  
                 </tr>
             <% }); %>
         </table>

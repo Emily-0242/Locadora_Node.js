@@ -3,11 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=, initial-scale=1.0">
+  <%- include("partials/cabecalho.ejs") %> 
+  <link rel="stylesheet" href="../index.css">
   <title>Document</title>
 </head>
 <body>
+  <section>
+    <div class="list">
+      <div class="item">
+        <div class="car-img">
+      <img src="../assets/img/1.png" alt="imagem carro">
+      <div class="content">
+        <p class="car-infomation">
+          Único dono 
+        </p>
+        <h2>
+          Ferrari
+        </h2>
+        <p class="description">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, ad expedita dignissimos molestias, harum, laboriosam repudiandae numquam aliquid alias reiciendis odit! Praesentium expedita tempora deserunt tempore esse sed quaerat dolorum?
+        </p>
+      </div>
+        </div>
+      </div>
+    </div>
 
-  <h1>Hello word</h1>
-  
+    <div class="arrows">
+      <button>
+        <img src="../assets/img/arrow.png" alt="seta-esrq">
+      </button>
+      <button>
+        <img src="../assets/img/arrow.png" alt="seta-dir">
+      </button>
+    </div>
+
+    <div class="indication">
+      <div class="number">01</div>
+      <ul>
+      <li class="active"></li>
+      <li></li>
+      <li></li>
+    </ul>
+    </div>
+  </section>
+  <%- include("partials/rodape.ejs") %> 
 </body>
 </html>

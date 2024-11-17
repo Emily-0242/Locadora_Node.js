@@ -6,6 +6,7 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 const mongoose = require("mongoose");
 mongoose.connect("mongodb+srv://evqv:B6CE496krl6OvEJ7@cluster0.yef7z.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
+app.use('/assets', express.static('assets'));
 
 
 app.get("/", function(req, res){

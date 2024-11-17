@@ -3,45 +3,74 @@
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-  }
-  
-  body {
+}
+
+body {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     height: 100vh;
-    background-color: #f4f4f9;
-  }
-  
-  .form-container {
+    background-color: white;
+}
+
+.search-bar {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 1em;
+    display: flex;
+    gap: 0.5em;
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 0.5em;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.search-bar button {
+    padding: 0.5em 1em;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #0056b3;
+}
+
+.form-container {
     background-color: #fff;
     padding: 2em;
     width: 100%;
     max-width: 400px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  h2 {
+}
+
+h2 {
     text-align: center;
     margin-bottom: 1em;
-  }
-  
-  label {
+}
+
+label {
     font-weight: bold;
     margin-top: 1em;
     display: block;
-  }
-  
-  input {
+}
+
+input {
     width: 100%;
     padding: 0.5em;
     margin-top: 0.3em;
     border: 1px solid #ddd;
     border-radius: 4px;
-  }
-  
-  button {
+}
+
+button[type="submit"] {
     width: 100%;
     padding: 0.7em;
     margin-top: 1em;
@@ -50,9 +79,8 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
-  }
-  
-  button:hover {
+}
+
+button[type="submit"]:hover {
     background-color: #0056b3;
-  }
-  
+}

@@ -1,67 +1,118 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-}
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
 
-body {
-    background-color: #1A1A1A;
-    color: #fff;
-    font-size: 16px;
-    overflow: hidden;
-}
+    body {
+        background-color: #1A1A1A;
+        color: #fff;
+        font-size: 16px;
+        overflow: hidden;
+    }
 
-.navbar-transparent {
-    background-color: rgba(0, 0, 0, 0.5); 
-    border: none;
-    box-shadow: none;
-    backdrop-filter: blur(5px); 
-}
-.navbar a {
-    color: white !important; 
-}
+    .navbar-transparent {
+        background-color: rgba(0, 0, 0, 0.5); 
+        border: none;
+        box-shadow: none;
+        backdrop-filter: blur(5px); 
+    }
 
+    .navbar a {
+        color: white !important; 
+    }
 
-.navbar .dropdown-menu {
-    background-color: #1A1A1A; 
-}
+    .navbar .dropdown-menu {
+        background-color: #1A1A1A; 
+    }
 
-.navbar .dropdown-item {
-    color: white ; 
-}
+    .navbar .dropdown-item {
+        color: white; 
+    }
 
-.navbar .dropdown-item:hover {
-    background-color: #333333; 
-}
-.navbar{
-    top: 0;
-    width: 100%;
-    position: fixed;
-    z-index: 2;
-}
+    .navbar .dropdown-item:hover {
+        background-color: #333333; 
+    }
 
-section{
-    background-image: radial-gradient(circle, rgba(255, 71, 71, 0.699) 0%, #1A1A1A 70%);
-    height: 100%;
-    position: relative;
-    
-    & .list{
-        width: 70vw;
+    .navbar {
+        top: 0;
+        width: 100%;
+        position: fixed;
+        z-index: 2;
+    }
+
+    section {
+        background-image: radial-gradient(circle, rgba(255, 71, 71, 0.699) 0%, #1A1A1A 70%);
         height: 100%;
+        position: relative;
+    }
+
+    section .list {
+        width: 70vw;
+        min-height: 100vh;
         margin: auto;
         position: relative;
-
-       
-        }
-
     }
 
-
-.arrows{
-    & button{
-        & img {
-            width: 100px;
-        }
+    section .list .item {
+        position: absolute;
+        inset: 0;
     }
-}
+
+    section .list .item .car-img {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 70%;
+    }
+
+    section .list .item .car-img img {
+        width: 100%;
+        transform: rotate(-15deg);
+    }
+
+    section .list .item .content {
+        position: absolute;
+        right: 100px;
+        width: 70%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        align-items: end;
+        gap: 20px;
+    }
+
+    section .list .item .content .car-infomation {
+        font-weight: bold;
+    }
+
+     h2 {
+        font-size: 6em !important; 
+        line-height: 1em;
+    }
+
+    section .list .item .content .description {
+        color: #d9d9d9;
+        font-size: 12px;
+        text-align: right;
+        max-width: 400px;
+    }
+
+    .arrows button img {
+        width: 100px;
+    }
+    .indication{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 200px;
+        width: 90vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        gap: 15px;
+
+    }

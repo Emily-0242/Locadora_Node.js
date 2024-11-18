@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include("../partials/cabecalho.ejs") %>
+    <link rel="stylesheet" href="../listagem.css">
+    <title>Listagem de Auxiliares de Venda</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Listagem de Auxiliares de Venda</h1>
+        <% if (status) { %>
+            <div class="alert alert-success alert-dismissible">
+                <button class="btn-close" data-bs-dismiss="alert"></button>
+                Cadastrado com <b>sucesso!</b>
+            </div>
+        <% } %>
+
+        <table class="table table-striped">
+            <tr>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>Data de Nascimento</th>
+                <th>CPF</th>
+                <th>Ações</th>
+            </tr>
+            <% auxiliares.forEach(auxiliar => { %>
+                <tr>
+                    <td><%= auxiliar.nome %></td>
+                    <td><%= auxiliar.email %></td>
+                    <td><%= new Date(auxiliar.data_nascimento).toLocaleDateString('pt-BR') %></td>
+                    <td><%= auxiliar.cpf %></td>
+                    <td><a href="/auxiliares/<%= auxiliar.cpf %>">Detalhar</a></td>  
+                </tr>
+            <% }); %>
+        </table>
+    </div>
+    <%- include("../partials/rodape.ejs") %>
+</body>
+</html>

@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <%- include("../partials/cabecalho.ejs") %> 
+    <%- include("../partials/cabecalho.ejs") %>
     <link rel="stylesheet" href="../cadastrar.css">
     <title>|Tela de Cadastro|</title>
 </head>
+
+
 <body>
-    <div class="form-container">
+    <div style="background-color: rgba(255, 255, 255, 0.5);" class="form-container">
         <h2>Cadastro de Veículo</h2>
         <form action="/carros" method="POST">
           <label for="marca">Marca</label>
@@ -32,6 +34,6 @@
           <button type="submit">Cadastrar Veículo</button>
         </form>
       </div>
-      <%- include("../partials/rodape.ejs") %> 
+      <%- include("../partials/rodape.ejs") %>
 </body>
 </html>

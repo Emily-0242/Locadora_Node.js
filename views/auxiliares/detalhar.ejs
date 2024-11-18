@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include("../partials/cabecalho.ejs") %>
+    <link rel="stylesheet" href="../detalhar.css">
+    <title>Detalhar Auxiliar</title>
+</head>
+<body>
+    <h1>Informações do Auxiliar de Vendas - <%= auxiliar.nome %> <%= auxiliar.cpf %></h1>
+<div class="container">
+    <div>
+    <strong>Nome:</strong> <%= auxiliar.nome %>
+    </div>
+    <div>
+        <strong>E-mail:</strong> <%= auxiliar.email %>
+    </div>
+    <div>
+        <strong>Data de Nascimento:</strong><td><%= new Date(auxiliar.data_nascimento).toLocaleDateString('pt-BR') %></td>
+    </div>
+    <div>
+        <strong>CPF:</strong> <%= auxiliar.cpf %>
+    </div>
+    <br>
+    <div>
+         <a href="/auxiliares"><button>Listagem</button></a> 
+    </div>
+</div>
+<%- include("../partials/rodape.ejs") %>
+</body>
+</html>

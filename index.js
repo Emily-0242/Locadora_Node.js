@@ -3,6 +3,7 @@ const CarroModel = require('./models/CarroModel');
 const AuxiliarModel = require('./models/AuxiliarModel');
 const app = express();  
 app.set("view engine", "ejs");
+
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 const mongoose = require("mongoose");

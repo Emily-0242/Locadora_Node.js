@@ -24,7 +24,7 @@
           <input value="<%=carro.ano%>" type="number" id="ano" name="inp_ano" min="1980" max="2024" required>
     
           <label for="placa">Placa</label>
-          <input value="carro.placa%>" type="text" id="placa" name="inp_placa"  pattern="[A-Z]{3}-[0-9]{4}" required title="Formato da placa: AAA-1234">
+          <input value="<%=carro.placa%>" type="text" id="placa" name="inp_placa"  pattern="[A-Z]{3}-[0-9]{4}" required title="Formato da placa: AAA-1234">
     
           <label for="cor">Cor</label>
           <input value="<%=carro.cor%>" type="text" id="cor" name="inp_cor" required>

@@ -1,16 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Gothic&family=Roboto:wght@400;500;700&display=swap');
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Poppins, sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 body {
     background-color: #1A1A1A;
     color: #fff;
     font-size: 18px;
-    overflow-x: hidden; /* Evita o overflow horizontal */
+    overflow-x: hidden;
+    /* Evita o overflow horizontal */
 }
 
 .navbar-transparent {
@@ -45,11 +48,14 @@ body {
 
 section {
     background-image: radial-gradient(circle, rgba(255, 71, 71, 0.699) 0%, #1A1A1A 70%);
-    height: 100vh; /* A altura vai sempre ocupar toda a tela */
+    height: 100vh;
+    /* A altura vai sempre ocupar toda a tela */
     position: relative;
     display: flex;
-    justify-content: center; /* Centraliza os elementos na tela */
-    align-items: center; /* Centraliza verticalmente */
+    justify-content: center;
+    /* Centraliza os elementos na tela */
+    align-items: center;
+    /* Centraliza verticalmente */
 }
 
 section .list {
@@ -59,7 +65,8 @@ section .list {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column; /* Garante que os itens fiquem em coluna */
+    flex-direction: column;
+    /* Garante que os itens fiquem em coluna */
 }
 
 .list::before {
@@ -83,14 +90,16 @@ section .list .item .car-img {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-70%, -60%);
+    transform: translate(-50%, -50%);
     width: 70%;
 }
 
 @media (max-width: 768px) {
     section .list .item .car-img {
-        transform: translate(-50%, -60%); /* Ajuste adicional para dispositivos menores */
-        width: 80%; /* Ajuste a largura da imagem para se ajustar melhor na tela pequena */
+        transform: translate(-50%, -60%);
+        /* Ajuste adicional para dispositivos menores */
+        width: 80%;
+        /* Ajuste a largura da imagem para se ajustar melhor na tela pequena */
     }
 }
 
@@ -107,18 +116,23 @@ section .list .item .content {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-end;
+    align-items: end;
     gap: 20px;
 }
 
 section .list .item .content .car-infomation {
     font-weight: bold;
+    font-family: "Poppins", sans-serif;
 }
 
 h2 {
-    margin-top: -10px;
+    margin-top: -5px;
     font-size: 4em !important;
     line-height: 1em;
+    font-family: "Poppins", sans-serif;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
 }
 
 section .list .item .content .description {
@@ -129,7 +143,8 @@ section .list .item .content .description {
 }
 
 .arrows button:nth-child(1) img {
-    transform: rotate(180deg); /* Inverte a seta da esquerda */
+    transform: rotate(180deg);
+    /* Inverte a seta da esquerda */
 }
 
 .arrows button {
@@ -179,6 +194,7 @@ section .list .item .content .description {
 
 .number {
     font-size: 5em;
+    font-family: "League Gothic", sans-serif;
 }
 
 .indicator-list {
@@ -201,23 +217,81 @@ section .list .item .content .description {
 }
 
 @media (min-width: 1024px) {
-    body {
-        font-size: 18px;
-    }
 
     h2 {
         font-size: 6em;
     }
 
-    .section .list {
-        width: 60vw;
+    section .list {
+        width: 70vw;
     }
 
-    .section .list .item .car-img {
+    section .list .item .car-img {
         width: 50%;
     }
 
-    .section .list .item .content {
+    section .list .item .content {
         width: 50%;
     }
 }
+
+ /*Efeito de entrada para o item do carro */
+section .list .item {
+    transform: translateX(100vw); /* Inicialmente fora da tela */
+     transition: transform 0.5s;
+    opacity: 0;
+
+}
+
+section .list .item .car-img img {
+    transform: rotate(-30deg);
+    transition: transform 0.5s;
+    transition-delay: 0.3s; 
+    /* Atraso para a imagem do carro */
+}
+
+ section .list .item .content .car-infomation {
+    transform: translateX(200px);
+    /* Inicialmente deslocado à direita */
+    transition: transform 0.7s;
+    transition-delay: 0.4s; 
+    /* Inicia logo após a imagem do carro */
+}
+
+section .list .item .content h2 {
+    transform: translateX(200px);
+    transition: transform 0.7s;
+    transition-delay: 0.5s;
+     /* Um pouco depois do car-infomation */
+}
+
+section .list .item .content .description {
+    transform: translateX(200px);
+    transition: transform 0.7s;
+    transition-delay: 0.7s;
+    opacity: 0; 
+    /* Último a aparecer */
+ } 
+ 
+section .list .item .active {
+    transform: translateX(0);
+    transition: transform 0.5s;
+    opacity: 1;
+} */
+
+
+section .list .item .active .content .car-infomation {
+    transform: translateX(0);
+
+}
+
+
+section .list .item .active .car-img img {
+    transform: rotate(-30deg);
+
+}
+
+section .list .item .active .content .car-infomation .description {
+    transform: translateX(0);
+    opacity: 1;
+} 

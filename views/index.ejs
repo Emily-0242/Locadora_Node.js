@@ -1,28 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%- include("partials/cabecalho.ejs") %>
-  <link rel="stylesheet" href="./index.css"> 
-  <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+    <title>Document</title>
 </head>
+
 <body>
-  <section>
+  <section class="container">
     <div class="list">
-      <div class="item">
+      <div class="item active">
         <div class="car-img">
-          <img src="../assets/img/1.png" alt="imagem carro"> 
+          <img src="../assets/img/1.png" alt="imagem carro">
         </div>
         <div class="content">
           <p class="car-infomation">
-            Único dono 
+            Conversível
+          </p>
+          <h2>
+            Ferrari prateada
+          </h2>
+          <p class="description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, ad expedita dignissimos molestias, harum,
+            laboriosam repudiandae numquam aliquid alias reiciendis odit! Praesentium expedita tempora deserunt tempore
+            esse sed quaerat dolorum?
+          </p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="car-img">
+          <img src="../assets/img/2.png" alt="imagem carro">
+        </div>
+        <div class="content">
+          <p class="car-infomation">
+            2015
+          </p>
+          <h2>
+            Porsche
+          </h2>
+          <p class="description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, ad expedita dignissimos molestias, harum,
+            laboriosam repudiandae numquam aliquid alias reiciendis odit! Praesentium expedita tempora deserunt tempore
+            esse sed quaerat dolorum?
+          </p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="car-img">
+          <img src="../assets/img/3.png" alt="imagem carro">
+        </div>
+        <div class="content">
+          <p class="car-infomation">
+            Único dono
           </p>
           <h2>
             Ferrari
           </h2>
           <p class="description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, ad expedita dignissimos molestias, harum, laboriosam repudiandae numquam aliquid alias reiciendis odit! Praesentium expedita tempora deserunt tempore esse sed quaerat dolorum?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, ad expedita dignissimos molestias, harum,
+            laboriosam repudiandae numquam aliquid alias reiciendis odit! Praesentium expedita tempora deserunt tempore
+            esse sed quaerat dolorum?
           </p>
         </div>
       </div>
@@ -30,23 +72,25 @@
 
     <div class="arrows">
       <button>
-        <img src="/assets/img/arrow.png" alt="seta-esrq">
+        <img id="prev" src="/assets/img/arrow.png" alt="seta-esrq">
       </button>
       <button>
-        <img src="/assets/img/arrow.png" alt="seta-dir">
+        <img id="next" src="/assets/img/arrow.png" alt="seta-dir">
       </button>
     </div>
 
     <div class="indicators">
       <div class="number">01</div>
       <ul class="indicator-list">
-      <li class="li-1"></li>
-      <li></li>
-      <li></li>
-    </ul>
+        <li class="li-1"></li>
+        <li></li>
+        <li></li>
+      </ul>
     </div>
 
   </section>
-  <%- include("partials/rodape.ejs") %> 
+  <%- include("partials/rodape.ejs") %>
+    <script src="/scripts.js"></script>
 </body>
+
 </html>

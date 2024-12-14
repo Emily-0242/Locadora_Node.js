@@ -8,28 +8,29 @@
     <title>|Tela de Cadastro|</title>
 </head>
 
-
 <body>
     <div class="form-container">
         <h2>Cadastro de Veículo</h2>
         <form action="/carros" method="POST">
+          <input type="hidden" name="_id" value="<%= carro._id %>">
+          
           <label for="marca">Marca</label>
-          <input type="text" id="marca" name="inp_marca" required>
+          <input value="<%=carro.marca%>" type="text" id="marca" name="inp_marca" required>
     
           <label for="modelo">Modelo</label>
-          <input type="text" id="modelo" name="inp_modelo" required>
+          <input value="<%=carro.modelo%>" type="text" id="modelo" name="inp_modelo" required>
     
           <label for="ano">Ano</label>
-          <input type="number" id="ano" name="inp_ano" min="1980" max="2024" required>
+          <input value="<%=carro.ano%>" type="number" id="ano" name="inp_ano" min="1980" max="2024" required>
     
           <label for="placa">Placa</label>
-          <input type="text" id="placa" name="inp_placa"  pattern="[A-Z]{3}-[0-9]{4}" required title="Formato da placa: AAA-1234">
+          <input value="carro.placa%>" type="text" id="placa" name="inp_placa"  pattern="[A-Z]{3}-[0-9]{4}" required title="Formato da placa: AAA-1234">
     
           <label for="cor">Cor</label>
-          <input type="text" id="cor" name="inp_cor" required>
+          <input value="<%=carro.cor%>" type="text" id="cor" name="inp_cor" required>
     
           <label for="preco_diaria">Preço da Diária (R$)</label>
-          <input type="number" id="preco_diaria" name="inp_preco_diaria" step="0.01" required>
+          <input value="<%=carro.preco_diaria%>" type="number" id="preco_diaria" name="inp_preco_diaria" step="0.01" required>
     
           <button type="submit">Cadastrar Veículo</button>
         </form>

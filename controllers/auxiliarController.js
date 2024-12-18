@@ -1,4 +1,5 @@
-const AuxiliarModel = require("../models/AuxiliarModel")
+const AuxiliarModel = require("../models/AuxiliarModel");
+const CarroModel = require("../models/CarroModel");
 
 class AuxiliarController {
 
@@ -41,7 +42,7 @@ class AuxiliarController {
                 email: req.body.email,
                 data_nascimento: req.body.data_nascimento,
                 cpf: req.body.cpf,
-            });res.redirect("/auxiliares?c=3");
+            });return res.redirect("/auxiliares?c=3");
 
         }else{
             const novoAuxiliar = new AuxiliarModel({
@@ -51,27 +52,51 @@ class AuxiliarController {
                 cpf: req.body.inp_cpf,
             });
             await novoAuxiliar.save();
-            res.redirect("/")
+            res.redirect("/auxiliares?c=1")
         }
+    };
+
+    
+    static async editarPost(req,res){
+        console.log(req.body.id_auxiliar);
+        await AuxiliarModel.findOneAndUpdate({ _id: req.body.id_auxiliar },{
+            nome: req.body.inp_nome,
+            email: req.body.inp_email,
+            data_nascimento: req.body.inp_data_nascimento,
+            cpf: req.body.inp_cpf,
+        }) 
+        res.redirect("/auxiliares?c=3");
     };
 
         static async cadastrarGet(req, res){
             const cpf = req.params.cpf;
             let auxiliar = {};
             if(cpf != undefined){
-                auxiliar = await auxiliarModel.findOne({cpf});
+                auxiliar = await AuxiliarModel.findOne({cpf});
             }res.render('auxiliares/cadastrar', {auxiliar});
-        }
+    }
     
         static async filtrarauxiliar (req, res) {
             const cpf = req.params.cpf;
-            const auxiliar = await auxiliarModel.findOne({ cpf: cpf });
+            const auxiliar = await AuxiliarModel.findOne({ cpf: cpf });
             if (auxiliar) {
                 res.render("auxiliares/detalhar", { auxiliar });
             } else {
                 res.render("404");
             }
-        };
+    };
+
+        static async remover (req,res){
+            const _cpf = req.params.cpf;
+            await AuxiliarModel.deleteOne({ cpf: _cpf});
+            res.redirect("/auxiliares?c=2")
+    }
+
+        static async editar (req, res){
+            const _cpf = req.params.cpf;
+            const auxiliar = await AuxiliarModel.findOne({cpf: _cpf});
+            res.render("auxiliares/editar", {auxiliar});
+    }
 }
 
 module.exports = AuxiliarController;

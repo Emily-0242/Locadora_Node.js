@@ -10,12 +10,24 @@
 <body>
     <div class="container">
         <h1>Listagem de Veículos</h1>
-        <% if (status) { %>
+        <% if ( status == "1") { %>
             <div class="alert alert-success alert-dismissible">
                 <button class="btn-close" data-bs-dismiss="alert"></button>
                 Cadastrado com <b>sucesso!</b>
             </div>
-        <% } %>
+           <% } %>
+           <% if ( status == "2") { %>
+            <div class="alert alert-danger alert-dismissible">
+                <button class="btn-close" data-bs-dismiss="alert"></button>
+                Removido com <b>sucesso!</b>
+            </div>
+           <% } %>
+           <% if ( status == "3") { %>
+            <div class="alert alert-warning alert-dismissible">
+                <button class="btn-close" data-bs-dismiss="alert"></button>
+                Atualizado com <b>sucesso!</b>
+            </div>
+           <% } %>
 
         <table class="table table-striped">
             <tr>
@@ -26,6 +38,8 @@
                 <th>Cor</th>
                 <th>Preço da Diária (R$)</th>
                 <th>Detalhes</th>
+                <th>Remover</th>
+                <th>Editar</th>
             </tr>
             <% carros.forEach(carro => { %>
                 <tr>
@@ -41,8 +55,10 @@
                         <%= carroDecimal.toFixed(2) %>
                     </td>
                     <td><a href="/carros/<%= carro.placa %>">Detalhar</a></td>  
+                    <td><a href="/carros/remover/<%= carro.placa %>"><button class="btn btn-danger" onclick="return confirm('Você quer realmente excluir permanentemente este carro?')">Remover</button></a></td>
+                    <td><a href="/carros/editar/<%= carro.placa %>"><button class="btn btn-secondary">Editar</button></a></td>
                 </tr>
-            <% }); %>
+            <% }); %>   
         </table>
     </div>
     <%- include("../partials/rodape.ejs") %>

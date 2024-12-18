@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include("../partials/cabecalho.ejs") %>
+    <link rel="stylesheet" href="/editar.css">
+    <title>|Editar Auxiliar|</title>
+</head>
+
+<body>
+    <div class="form-container">
+        <h2>Cadastro de Veículo</h2>
+        <form action="/auxiliares/editar" method="POST">
+        <input type="hidden" name="id_auxiliar" value="<%= auxiliar._id %>">
+        
+       
+        <label for="nome">Nome</label>
+        <input value="<%=auxiliar.nome %>" type="text" name="inp_nome" required>
+  
+        <label for="ano">E-mail</label>
+        <input value="<%=auxiliar.email %>" type="text" name="inp_email" required>
+
+        <label for="modelo">Data de Nascimento</label>
+        <input value="<%=auxiliar.data_nascimento %>" type="date" name="inp_data_nascimento" required>
+  
+        <label for="placa">CPF</label>
+        <input
+          value="<%new Date(auxiliar.data_nascimento).toISOString().split('T')[0] %>" 
+          type="text" 
+          name="inp_cpf" 
+          pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" 
+          required 
+          title="Formato do CPF: 000.000.000-00">
+        <a class="btn btn-danger" href="/">Voltar</a>
+        <button type="submit">Salvar</button>
+        </form>
+    </div>
+    <%- include("../partials/rodape.ejs") %>
+</body>
+</html>

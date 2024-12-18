@@ -1,0 +1,41 @@
+    <!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <%- include("../partials/cabecalho.ejs") %>
+        <link rel="stylesheet" href="/editar.css">
+        <title>|Editar carros|</title>
+    </head>
+
+    <body>
+        <div class="form-container">
+            <h2>Cadastro de Veículo</h2>
+            <form action="/carros/editar" method="POST">
+            <input type="hidden" name="id_carro" value="<%= carro._id %>">
+            
+            <label for="marca">Marca</label>
+            <input value="<%=carro.marca%>" type="text" name="inp_marca" required>
+        
+            <label for="modelo">Modelo</label>
+            <input value="<%=carro.modelo%>" type="text" name="inp_modelo" required>
+        
+            <label for="ano">Ano</label>
+            <input value="<%=carro.ano%>" type="number" name="inp_ano" min="1980" max="2024" required>
+        
+            <label for="placa">Placa</label>
+            <input value="<%=carro.placa%>" type="text" name="inp_placa"  pattern="[A-Z]{3}-[0-9]{4}" required title="Formato da placa: AAA-1234">
+        
+            <label for="cor">Cor</label>
+            <input value="<%=carro.cor%>" type="text" name="inp_cor" required>
+        
+            <label for="preco_diaria">Preço da Diária (R$)</label>
+            <input value="<%=carro.preco_diaria%>" type="number" name="inp_preco_diaria" step="0.01" required>
+
+            <a href="/"><button type="button" class="btn btn-voltar">Voltar</button></a>
+            <button type="submit">Salvar</button>
+            </form>
+        </div>
+        <%- include("../partials/rodape.ejs") %>
+    </body>
+    </html>

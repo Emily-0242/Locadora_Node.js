@@ -47,7 +47,17 @@ class CarroController{
         }
     };
     
-    
+    static async editarPost(req,res){
+        await CarroModel.findOneAndUpdate({ _id: req.body.id_carro },{
+            marca: req.body.inp_marca,
+            modelo: req.body.inp_modelo,
+            ano: req.body.inp_ano,
+            placa: req.body.inp_placa,
+            cor: req.body.inp_cor,
+            preco_diaria: req.body.inp_preco_diaria,
+        }) 
+        res.redirect("/carros?c=3");
+    };
     
     static async cadastrarGet (req,res){
         const placa = req.params.placa;
@@ -68,6 +78,18 @@ class CarroController{
             res.render("404");
         }
     };
+
+    static async remover(req, res){
+        const pla = req.params.placa;
+        await CarroModel.deleteOne({ placa: pla})
+        res.redirect("/carros?c=2")
+    }
+
+    static async editar (req, res){
+        const id = req.params.placa;
+        const carro = await CarroModel.findOne({ placa: id});
+        res.render("carro/editar", {carro});
+    }
 }
 
 module.exports = CarroController;

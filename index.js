@@ -4,10 +4,19 @@ const AuxiliarModel = require('./models/AuxiliarModel');
 const app = express();  
 app.set("view engine", "ejs");
 app.use(express.static('public'));
-app.use(express.urlencoded({ extended: true }));
-const mongoose = require("mongoose");
-mongoose.connect("mongodb+srv://evqv:B6CE496krl6OvEJ7@cluster0.yef7z.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
 app.use('/assets', express.static('assets'));
+app.use(express.urlencoded({ extended: true }));
+const session = require("express-session");
+app.use(session({
+    secret: 'ifpe',
+    saveUninitialized: false,
+    resave: false
+    }));
+require('dotenv/config');
+// Conexão com o banco de dados
+const mongoose = require("mongoose");
+mongoose.connect(process.env.MONGO_URI);
+
 
 const carroRoutes = require("./routes/carroRoutes");
 const auxiliarRoutes = require("./routes/auxiliarRoutes");
@@ -17,10 +26,13 @@ app.use(carroRoutes);
 
 
 app.get("/", function(req, res){
-    res.render("index");
-    
+    if(req.session.auxiliar){
+        res.render("index");
+    }else{
+        res.redirect("/auxiliares/login");
+    }    
 });
 
-app.listen("888", function(){
+app.listen(process.env.PORT, function(){
     console.log("Rodando");
 });

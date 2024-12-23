@@ -35,6 +35,7 @@
                 <th>E-mail</th>
                 <th>Data de Nascimento</th>
                 <th>CPF</th>
+                <th>Senha</th>
                 <th>Ações</th>
                 <th>Remover</th>
                 <th>Editar</th>
@@ -45,6 +46,7 @@
                     <td><%= auxiliar.email %></td>
                     <td><%= new Date(auxiliar.data_nascimento).toLocaleDateString('pt-BR') %></td>
                     <td><%= auxiliar.cpf %></td>
+                    <td><%= auxiliar.senha %></td>
                     <td><a href="/auxiliares/<%= auxiliar.cpf %>">Detalhar</a></td>  
                     <td><a href="/auxiliares/remover/<%= auxiliar.cpf %>"><button class="btn btn-danger" onclick="return confirm('Você quer realmente excluir permanentemente este carro?')">Remover</button></a></td>
                     <td><a href="/auxiliares/editar/<%= auxiliar.cpf %>"><button class="btn btn-secondary">Editar</button></a></td>

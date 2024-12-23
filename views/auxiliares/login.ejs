@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include("../partials/cabecalho.ejs") %> 
+    <link rel="stylesheet" href="/login.css">
+    <title>|Login|</title>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Cadastro de Auxiliares</h2>
+        <form action="/auxiliares/login" method="POST">
+    
+          <label for="inp_email">E-mail</label>
+          <input type="text" required placeholder="Seu E-mail"  name="inp_email" required>
+
+          <label for="inp_senha">Senha</label>
+          <input type="password"  required placeholder="Sua Senha" name="inp_senha" required>
+
+          <a href="/"><button type="button" class="btn btn-voltar">Voltar</button></a>
+          <button value="logar" type="submit">Logar</button>
+        </form>
+        <a href="/auxiliares/cadastrar"> Deseja se cadastrar? </a>
+      </div>
+      <%- include("../partials/rodape.ejs") %> 
+
+</body>
+</html>

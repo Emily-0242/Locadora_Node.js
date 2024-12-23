@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%- include("../partials/cabecalho.ejs") %> 
-    <link rel="stylesheet" href="../cadastrar.css">
+    <link rel="stylesheet" href="/cadastrar.css">
     <title>Cadastro de Auxiliares de Venda</title>
 </head>
 <body>
@@ -14,13 +14,13 @@
           <input type="hidden" name="_id" value="<%= auxiliar._id %>">
 
           <label for="nome">Nome</label>
-          <input value="<%=auxiliar.nome %>" type="text" id="nome" name="inp_nome" required>
+          <input value="<%=auxiliar.nome %>" type="text" id="nome" name="inp_nome" required placeholder="Seu nome">
     
           <label for="ano">E-mail</label>
-          <input value="<%=auxiliar.email %>" type="text" id="email" name="inp_email" required>
+          <input value="<%=auxiliar.email %>" type="text" id="email" name="inp_email" required placeholder="Seu melhor E-mail">
 
           <label for="modelo">Data de Nascimento</label>
-          <input value="<%=auxiliar.data_nascimento %>" type="date" id="data_nascimento" name="inp_data_nascimento" required>
+          <input value="<%=auxiliar.data_nascimento %>" type="date" id="data_nascimento" name="inp_data_nascimento" required >
     
           <label for="placa">CPF</label>
           <input
@@ -29,9 +29,12 @@
             id="cpf" 
             name="inp_cpf" 
             pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" 
-            required 
+            required placeholder="Seu CPF"
             title="Formato do CPF: 000.000.000-00">
-          <a class="btn btn-danger" href="/">Voltar</a>
+
+            <label for="inp_senha">Senha</label>
+            <input value="<%= auxiliar.senha%>" type="text" required placeholder="Sua Senha" name="inp_senha">
+          <a href="/"><button type="button" class="btn btn-voltar">Voltar</button></a>
           <button type="submit">Cadastrar</button>
         </form>
       </div>

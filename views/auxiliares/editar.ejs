@@ -32,7 +32,9 @@
           pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" 
           required 
           title="Formato do CPF: 000.000.000-00">
-        <a class="btn btn-danger" href="/">Voltar</a>
+          <label for="inp_senha">Senha</label>
+        <input value="<%=auxiliar.senha%>" type="text" required placeholder="Sua Senha" name="inp_senha">
+          <a href="/"><button type="button" class="btn btn-voltar">Voltar</button></a>
         <button type="submit">Salvar</button>
         </form>
     </div>

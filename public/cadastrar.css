@@ -31,6 +31,20 @@
         margin: 2em auto;
         
     }
+
+    .navbar{
+        position: fixed; /* Mantém a barra fixa no topo */
+        top: 0; /* Alinha no topo da página */
+        left: 50%; /* Centraliza horizontalmente */
+        transform: translateX(-50%); /* Ajusta a centralização */
+        width: 100%;
+        margin: 0 auto; /* Remove margens extras */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+        padding: 0.5em;
+        display: flex;
+        gap: 0.5em;
+        z-index: 1000; /* Garante que fica acima dos outros elementos */
+    }
     
 .navbar-transparent {
     background-color: rgba(0, 0, 0, 0.5); 
@@ -111,6 +125,7 @@
     max-width: 400px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 4em; 
 }
 
 h2 {

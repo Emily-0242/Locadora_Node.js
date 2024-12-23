@@ -1,5 +1,6 @@
 const AuxiliarModel = require("../models/AuxiliarModel");
 const CarroModel = require("../models/CarroModel");
+const bcryptjs = require("bcryptjs");
 
 class AuxiliarController {
 
@@ -15,6 +16,7 @@ class AuxiliarController {
             email: req.body.inp_email,
             data_nascimento: req.body.inp_data_nascimento,
             cpf: req.body.inp_cpf,
+            senha: req.body.inp_senha,
         });
     
         try {
@@ -42,6 +44,7 @@ class AuxiliarController {
                 email: req.body.email,
                 data_nascimento: req.body.data_nascimento,
                 cpf: req.body.cpf,
+                senha: req.body.senha,
             });return res.redirect("/auxiliares?c=3");
 
         }else{
@@ -50,6 +53,7 @@ class AuxiliarController {
                 email: req.body.inp_email,
                 data_nascimento: req.body.inp_data_nascimento,
                 cpf: req.body.inp_cpf,
+                senha: req.body.inp_senha,
             });
             await novoAuxiliar.save();
             res.redirect("/auxiliares?c=1")
@@ -64,6 +68,7 @@ class AuxiliarController {
             email: req.body.inp_email,
             data_nascimento: req.body.inp_data_nascimento,
             cpf: req.body.inp_cpf,
+            senha: req.body.inp_senha,
         }) 
         res.redirect("/auxiliares?c=3");
     };
@@ -96,6 +101,28 @@ class AuxiliarController {
             const _cpf = req.params.cpf;
             const auxiliar = await AuxiliarModel.findOne({cpf: _cpf});
             res.render("auxiliares/editar", {auxiliar});
+    }
+
+        static async loginGet(req, res){
+            res.render("auxiliares/login");
+        }
+
+        static async loginPost(req,res){
+            const email = req.body.inp_email;
+            const senha = req.body.inp_senha;
+            const auxiliar = await AuxiliarModel.findOne({email:email, senha:senha
+        });
+        if(auxiliar == null){
+            res.redirect("/auxiliares/login?e=1")
+        }else{
+            req.session.auxiliar = req.body.inp_email;
+            res.redirect("/")
+        }
+    };
+
+    static logout(req,res){
+        req.session.auxiliar = null;
+        res.redirect("/auxiliares/login")
     }
 }
 

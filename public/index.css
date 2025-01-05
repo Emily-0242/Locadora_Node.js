@@ -90,14 +90,25 @@ section .list .item .car-img {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-70%, -50%);
     width: 70%;
 }
+@media (max-width: 600px) {
+    section .list .item .car-img img {
+      width: 90%;
+    }
+    h2 {
+      font-size: 3em;
+    }
+    .description {
+      font-size: 10px;
+    }
+  }
+  
 
 @media (max-width: 768px) {
     section .list .item .car-img {
         transform: translate(-50%, -60%);
-        /* Ajuste adicional para dispositivos menores */
         width: 80%;
         /* Ajuste a largura da imagem para se ajustar melhor na tela pequena */
     }
@@ -118,6 +129,7 @@ section .list .item .content {
     justify-content: center;
     align-items: end;
     gap: 20px;
+    transform: translateX(-45%);
 }
 
 section .list .item .content .car-infomation {
@@ -157,12 +169,14 @@ section .list .item .content .description {
     border-radius: 50%;
     border: none;
     cursor: pointer;
+    z-index: 5;
 }
 
 .arrows button img {
     width: 30px;
     margin: 0;
     cursor: pointer;
+  
 }
 
 .arrows button:hover {
@@ -177,6 +191,7 @@ section .list .item .content .description {
     transform: translate(-50%, -50%);
     display: flex;
     justify-content: space-between;
+
 }
 
 .indicators {
@@ -215,6 +230,10 @@ section .list .item .content .description {
 .indicator-list .li-1 {
     background-color: white;
 }
+.indicator-list li.active {
+    background-color: white; /* Indicador ativo */
+  }
+  
 
 @media (min-width: 1024px) {
 
@@ -235,63 +254,76 @@ section .list .item .content .description {
     }
 }
 
- /*Efeito de entrada para o item do carro */
 section .list .item {
     transform: translateX(100vw); /* Inicialmente fora da tela */
-     transition: transform 0.5s;
-    opacity: 0;
-
+    transition: transform 0.5s, opacity 0.5s; /* Transições suaves */
+    opacity: 0; /* Itens invisíveis inicialmente */
+    position: absolute; /* Garante que todos os itens fiquem sobrepostos */
+    top: 0;
+    left: 0;
+    width: 100%; /* Cada item ocupa 100% da largura da seção */
+    height: 100%; /* Cada item ocupa 100% da altura da seção */
+    pointer-events: none; /* Inativos inicialmente */
 }
 
+/* Imagem do carro: configuração inicial */
 section .list .item .car-img img {
-    transform: rotate(-30deg);
-    transition: transform 0.5s;
-    transition-delay: 0.3s; 
-    /* Atraso para a imagem do carro */
+    transform: rotate(-30deg); /* Rotação inicial */
+    transition: transform 0.5s ease-in-out;
+  
 }
 
- section .list .item .content .car-infomation {
-    transform: translateX(200px);
-    /* Inicialmente deslocado à direita */
-    transition: transform 0.7s;
-    transition-delay: 0.4s; 
-    /* Inicia logo após a imagem do carro */
+/* Informações do carro: configuração inicial */
+section .list .item .content .car-infomation {
+    transform: translateX(200px); /* Deslocado à direita */
+    transition: transform 0.7s ease-in-out;
+    transition-delay: 0.4s; /* Atraso na animação */
 }
 
+/* Títulos: configuração inicial */
 section .list .item .content h2 {
-    transform: translateX(200px);
-    transition: transform 0.7s;
-    transition-delay: 0.5s;
-     /* Um pouco depois do car-infomation */
+    transform: translateX(200px); /* Deslocado à direita */
+    transition: transform 0.7s ease-in-out;
+
 }
 
+/* Descrição: configuração inicial */
 section .list .item .content .description {
-    transform: translateX(200px);
-    transition: transform 0.7s;
-    transition-delay: 0.7s;
-    opacity: 0; 
-    /* Último a aparecer */
- } 
- 
-section .list .item .active {
-    transform: translateX(0);
-    transition: transform 0.5s;
-    opacity: 1;
-} */
-
-
-section .list .item .active .content .car-infomation {
-    transform: translateX(0);
-
+    transform: translateX(200px); /* Deslocado à direita */
+    transition: transform 0.7s ease-in-out;
+    transition-delay: 0.7s; /* Último elemento a aparecer */
+    opacity: 0; /* Invisível inicialmente */
 }
 
-
-section .list .item .active .car-img img {
-    transform: rotate(-30deg);
-
+section .list .item.active {
+    transform: translateX(0); /* Alinha o item ativo */
+    opacity: 1; /* Torna visível */
+    pointer-events: auto; /* Permite interação */
 }
 
-section .list .item .active .content .car-infomation .description {
-    transform: translateX(0);
-    opacity: 1;
+/* Informações do carro quando ativo */
+section .list .item.active .content .car-infomation {
+    transform: translateX(-30deg); /* Alinha corretamente */
+}
+
+/* Imagem do carro quando ativo */
+section .list .item.active .car-img img {
+    transform: rotate(-30deg); /* Remove a rotação */
+}
+
+/* Títulos e descrição quando o item está ativo */
+section .list .item.active .content h2,
+section .list .item.active .content .description {
+    transform: translateX(-30deg); /* Alinha corretamente */
+    opacity: 1; /* Torna visível */
+}
+
+section .list .item:not(.active) {
+    pointer-events: none; /* Impede interação */
+}
+
+/* Configuração geral da lista para evitar overflow */
+section .list {
+    position: relative;
+    overflow: hidden; /* Garante que itens fora da tela não apareçam */
 } 

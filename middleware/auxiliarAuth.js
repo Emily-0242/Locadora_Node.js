@@ -1,5 +1,6 @@
 function auth(req, res, next) {
-    if (req.session.auxiliares) {
+    console.log(req.session); 
+    if (req.session.auxiliar) {
         next();
     } else {
         res.redirect("/auxiliares/login");

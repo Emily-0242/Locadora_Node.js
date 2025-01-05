@@ -11,7 +11,7 @@ app.use(session({
     secret: 'ifpe',
     saveUninitialized: false,
     resave: false
-    }));
+}));
 require('dotenv/config');
 // Conexão com o banco de dados
 const mongoose = require("mongoose");

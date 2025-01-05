@@ -1,6 +1,6 @@
 const CarroModel = require("../models/CarroModel");
 
-class CarroController{
+class carroController{
 
         static async listar (req, res)  {
         const status = req.query.c;
@@ -92,4 +92,4 @@ class CarroController{
     }
 }
 
-module.exports = CarroController;
+module.exports = carroController;

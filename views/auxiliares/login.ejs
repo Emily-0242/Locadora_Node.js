@@ -11,6 +11,10 @@
     <div class="form-container">
         <h2>Cadastro de Auxiliares</h2>
         <form action="/auxiliares/login" method="POST">
+          
+          <% if (sucesso === '1') { %>
+            <p>Erro ao fazer login. Verifique seu e-mail ou senha.</p>
+        <% } %>
     
           <label for="inp_email">E-mail</label>
           <input type="text" required placeholder="Seu E-mail"  name="inp_email" required>

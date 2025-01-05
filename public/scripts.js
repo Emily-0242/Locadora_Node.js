@@ -1,19 +1,26 @@
 let prevButton = document.getElementById('prev');
 let nextButton = document.getElementById('next');
-let container = document.querySelector('.container');
-let items = container.querySelectorAll('.list .item');
-let indicator = document.querySelector('.indicators');
-let dots = indicator.querySelectorAll('ul li')
+let list = document.querySelector('.list'); // A lista de itens
+let items = document.querySelectorAll('.list .item'); // Todos os itens da lista
+let currentIndex = 0; // Índice do item ativo
 
-let active = 0;
-let firstPosition = 0;
-let lastPosition = items.length -1 ; // a posicão final vai ser "item - 2", então a quantidade de itens dele é -1"
+prevButton.onclick = () => moveItemsOnclick('prev');
+nextButton.onclick = () => moveItemsOnclick('next');
 
-nextButton.onclick = () =>{
-    let itemOld = container.querySelector(' .list .item.active')
-    itemOld.classList.remove('active')
-}
-
-prevButton.onclick = () =>{
-    console.log("Botão prev")
+function moveItemsOnclick(type) {
+    if (type === 'next') {
+        // Remover a classe "active" do item atual
+        items[currentIndex].classList.remove('active');
+        // Aumentar o índice, garantindo que ele esteja no intervalo correto
+        currentIndex = (currentIndex + 1) % items.length;
+        // Adicionar a classe "active" no próximo item
+        items[currentIndex].classList.add('active');
+    } else if (type === 'prev') {
+        // Remover a classe "active" do item atual
+        items[currentIndex].classList.remove('active');
+        // Diminuir o índice, garantindo que ele esteja no intervalo correto
+        currentIndex = (currentIndex - 1 + items.length) % items.length;
+        // Adicionar a classe "active" no item anterior
+        items[currentIndex].classList.add('active');
+    }
 }

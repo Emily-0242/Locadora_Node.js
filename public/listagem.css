@@ -30,7 +30,6 @@ body {
     color: white !important; 
 }
 
-
 .navbar .dropdown-menu {
     background-color: #1A1A1A; 
 }
@@ -42,6 +41,7 @@ body {
 .navbar .dropdown-item:hover {
     background-color: #333333; 
 }
+
 .container {
     width: 80%;
     max-width: 1000px;
@@ -49,6 +49,7 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow-x: auto; /* Permite rolagem horizontal se necessário */
 }
 
 h1 {
@@ -81,6 +82,7 @@ h1 {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    table-layout: fixed; /* Força as células a terem largura fixa */
 }
 
 .table th,
@@ -88,11 +90,14 @@ h1 {
     padding: 10px;
     border: 1px solid #ddd;
     text-align: center;
+    word-wrap: break-word; /* Quebra palavras longas para evitar overflow */
 }
 
 .table th {
     background-color: #007bff;
     color: white;
+    padding: 8px 10px; /* Diminui o padding para reduzir a altura */
+    height: 40px; /* Ajusta a altura do cabeçalho */
 }
 
 .table tr:nth-child(even) {

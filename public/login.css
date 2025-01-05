@@ -16,12 +16,14 @@ body {
     padding: 0;
     background-attachment: fixed;
     height: 100vh; /* Faz com que o body ocupe 100% da altura da tela */
-    display: flex; /* Usa o Flexbox para centralizar o conteúdo */
     justify-content: center; /* Centraliza horizontalmente */
     align-items: center; /* Centraliza verticalmente */
 }
 
 .form-container {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
     display: flex;
     flex-direction: column;
     align-items: center;

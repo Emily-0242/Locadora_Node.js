@@ -47,9 +47,10 @@
                     <td><%= new Date(auxiliar.data_nascimento).toLocaleDateString('pt-BR') %></td>
                     <td><%= auxiliar.cpf %></td>
                     <td><%= auxiliar.senha %></td>
-                    <td><a href="/auxiliares/<%= auxiliar.cpf %>"><button> </button>Detalhar</a></td>  
-                    <td><a href="/auxiliares/remover/<%= auxiliar.cpf %>"><button class="btn btn-danger" onclick="return confirm('Você quer realmente excluir permanentemente este carro?')">Remover</button></a></td>
-                    <td><a href="/auxiliares/editar/<%= auxiliar.cpf %>"><button class="btn btn-secondary">Editar</button></a></td>
+                    <td><a href="/auxiliares/<%= auxiliar.cpf %>"><button class="btn btn-primary btn-detalhar">Detalhar</button></a></td>
+                <td><a href="/auxiliares/remover/<%= auxiliar.cpf %>"><button class="btn btn-danger btn-remover" onclick="return confirm('Você quer realmente excluir permanentemente este carro?')">Remover</button></a></td>
+                <td><a href="/auxiliares/editar/<%= auxiliar.cpf %>"><button class="btn btn-secondary btn-editar">Editar</button></a></td>
+
                 </tr>
             <% }); %>
         </table>

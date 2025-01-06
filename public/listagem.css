@@ -6,15 +6,15 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
-    color: #333;
+    background-image: radial-gradient(circle, rgba(255, 71, 71, 0.699) 0%, #1A1A1A 70%);
+    color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
 }
 
-.navbar{
+.navbar {
     top: 0;
     width: 100%;
     position: fixed;
@@ -35,7 +35,7 @@ body {
 }
 
 .navbar .dropdown-item {
-    color: white ; 
+    color: white; 
 }
 
 .navbar .dropdown-item:hover {
@@ -45,24 +45,26 @@ body {
 .container {
     width: 80%;
     max-width: 1000px;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.1); /* Fundo claro e translúcido */
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow-x: auto; /* Permite rolagem horizontal se necessário */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    overflow-x: auto;
+    backdrop-filter: blur(10px); /* Adiciona um leve desfoque para um efeito mais elegante */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Borda suave */
 }
 
 h1 {
     text-align: center;
     margin-bottom: 20px;
-    color: #007bff;
+    color: white;
 }
 
 .alert {
     padding: 15px;
-    background-color: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
+    background-color: rgba(255, 71, 71, 0.8); /* Vermelho translúcido */
+    color: #fff;
+    border: 1px solid rgba(255, 71, 71, 0.8);
     border-radius: 5px;
     display: flex;
     justify-content: space-between;
@@ -75,40 +77,98 @@ h1 {
     border: none;
     font-size: 16px;
     cursor: pointer;
-    color: #155724;
+    color: #fff;
 }
 
 .table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
-    table-layout: fixed; /* Força as células a terem largura fixa */
+    table-layout: fixed;
 }
 
 .table th,
 .table td {
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #302929;
     text-align: center;
-    word-wrap: break-word; /* Quebra palavras longas para evitar overflow */
+    word-wrap: break-word;
 }
 
 .table th {
-    background-color: #007bff;
-    color: white;
-    padding: 8px 10px; /* Diminui o padding para reduzir a altura */
-    height: 40px; /* Ajusta a altura do cabeçalho */
+    background-color: rgba(10, 10, 10, 0.795); /* Fundo claro e translúcido */
+    color: #fff;
+    padding: 8px 10px;
+    height: 40px;
 }
 
 .table tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: #555;
+}
+
+.table tr:nth-child(odd) {
+    background-color: #444;
 }
 
 .table a {
-    color: #007bff;
+    color: rgba(255, 71, 71, 0.8);
     text-decoration: none;
 }
 
 .table a:hover {
     text-decoration: underline;
+    background-color: rgba(255, 71, 71, 1); /* Fundo mais intenso no hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adiciona sombra */
+}
+.btn-detalhar {
+    background-color: rgba(41, 21, 21, 0.829); /* Cor de fundo vermelha */
+    color: #fff; /* Cor do texto */
+    border: none; /* Remove a borda padrão */
+    border-radius: 5px; /* Arredondamento */
+    padding: 10px 15px; /* Espaçamento interno */
+    cursor: pointer; /* Mostra o cursor de clique */
+    font-size: 14px; /* Tamanho da fonte */
+    transition: all 0.3s ease; /* Animação suave */
+}
+
+.btn-detalhar:hover {
+    background-color: rgba(255, 71, 71, 1); /* Fundo mais intenso no hover */
+    color: #f1f1f1; /* Texto levemente mais claro */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adiciona sombra */
+}
+
+/* Botão Remover */
+.btn-remover {
+    background-color: rgba(255, 0, 0, 0.8); /* Cor de fundo vermelha intensa */
+    color: #fff; /* Cor do texto */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.btn-remover:hover {
+    background-color: rgba(255, 0, 0, 1); /* Fundo mais intenso no hover */
+    color: #f1f1f1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Botão Editar */
+.btn-editar {
+    background-color: rgba(0, 0, 255, 0.8); /* Cor de fundo azul */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.btn-editar:hover {
+    background-color: rgba(0, 0, 255, 1); /* Fundo mais intenso no hover */
+    color: #f1f1f1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }

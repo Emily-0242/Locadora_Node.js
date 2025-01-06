@@ -2,6 +2,8 @@ let prevButton = document.getElementById('prev');
 let nextButton = document.getElementById('next');
 let list = document.querySelector('.list'); // A lista de itens
 let items = document.querySelectorAll('.list .item'); // Todos os itens da lista
+let indicators = document.querySelectorAll('.indicator-list li'); // Todas as `li` dos indicadores
+let numberDisplay = document.querySelector('.number'); // Display do número
 let currentIndex = 0; // Índice do item ativo
 
 prevButton.onclick = () => moveItemsOnclick('prev');
@@ -23,4 +25,9 @@ function moveItemsOnclick(type) {
         // Adicionar a classe "active" no item anterior
         items[currentIndex].classList.add('active');
     }
+     // Adicionar a classe "active" ao novo item e indicador
+     items[currentIndex].classList.add('active');
+     indicators[currentIndex].classList.add('active');
+     // Atualizar o número exibido
+     numberDisplay.textContent = `0${currentIndex + 1}`; // Exemplo: 01, 02...
 }

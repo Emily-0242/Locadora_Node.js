@@ -18,5 +18,8 @@ API em desenvolvimento de páginas web utilizando JS
 
 ![2](https://github.com/user-attachments/assets/2c0d982d-7952-4ba7-9d76-fe7a9514893c)
 
+## Telas de Cadastro e Edição para Carros
+
+![Green and White Modern Landing Page Wireframe Website UI Prototype](https://github.com/user-attachments/assets/54048ffe-9b15-4800-9103-14bd1a93104c)
 
 

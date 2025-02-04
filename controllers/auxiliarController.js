@@ -8,8 +8,8 @@ class AuxiliarController {
         const status = req.query.c;
         const auxiliares = await AuxiliarModel.find();
         res.render("auxiliares/listagem", { auxiliares, status });
-    };
-
+    }; 
+    //Registrar
     static async novoAuxiliar(req, res) {
         const novoAuxiliar = new AuxiliarModel({
             nome: req.body.inp_nome,
@@ -36,7 +36,7 @@ class AuxiliarController {
         }
     };
 
-
+    //Criar ou atualizar um auxiliar    
     static async cadastrarpost(req, res) {
         const auxiliarExistente = await AuxiliarModel.findOne({ email: req.body.inp_email });
         if (auxiliarExistente) {

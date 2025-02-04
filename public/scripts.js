@@ -4,30 +4,42 @@ let list = document.querySelector('.list'); // A lista de itens
 let items = document.querySelectorAll('.list .item'); // Todos os itens da lista
 let indicators = document.querySelectorAll('.indicator-list li'); // Todas as `li` dos indicadores
 let numberDisplay = document.querySelector('.number'); // Display do número
-let currentIndex = 0; // Índice do item ativo
+let currentIndex = 0;
 
-prevButton.onclick = () => moveItemsOnclick('prev');
-nextButton.onclick = () => moveItemsOnclick('next');
+// Lista de cores/gradientes para cada carro
+const backgrounds = [
+    'radial-gradient(circle, rgba(255, 71, 71, 0.699) 0%, #1A1A1A 70%)', 
+    'radial-gradient(circle, rgba(0, 102, 255, 0.8) 0%, #1A1A1A 70%)', 
+    'radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, #1A1A1A 70%)'  
+];
 
-function moveItemsOnclick(type) {
-    if (type === 'next') {
-        // Remover a classe "active" do item atual
-        items[currentIndex].classList.remove('active');
-        // Aumentar o índice, garantindo que ele esteja no intervalo correto
-        currentIndex = (currentIndex + 1) % items.length;
-        // Adicionar a classe "active" no próximo item
-        items[currentIndex].classList.add('active');
-    } else if (type === 'prev') {
-        // Remover a classe "active" do item atual
-        items[currentIndex].classList.remove('active');
-        // Diminuir o índice, garantindo que ele esteja no intervalo correto
-        currentIndex = (currentIndex - 1 + items.length) % items.length;
-        // Adicionar a classe "active" no item anterior
-        items[currentIndex].classList.add('active');
-    }
-     // Adicionar a classe "active" ao novo item e indicador
-     items[currentIndex].classList.add('active');
-     indicators[currentIndex].classList.add('active');
-     // Atualizar o número exibido
-     numberDisplay.textContent = `0${currentIndex + 1}`; // Exemplo: 01, 02...
+// Função para exibir o item correspondente ao índice
+function showItem(index) {
+    items.forEach((item, i) => {
+        item.style.transform = i === index ? 'translateX(0)' : 'translateX(100vw)';
+        item.style.opacity = i === index ? '1' : '0';
+        item.style.pointerEvents = i === index ? 'auto' : 'none';
+        indicators[i].classList.toggle('active', i === index);
+    });
+
+    // Atualizar o número exibido
+    numberDisplay.textContent = `0${index + 1}`; // Exemplo: 01, 02...
+
+    // Alterar o fundo do body
+    document.body.style.backgroundImage = backgrounds[index];
 }
+
+// Botão "Anterior"
+prevButton.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + items.length) % items.length;
+    showItem(currentIndex);
+});
+
+// Botão "Próximo"
+nextButton.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % items.length;
+    showItem(currentIndex);
+});
+
+// Inicializa o primeiro item
+showItem(currentIndex);

@@ -18,6 +18,5 @@ API em desenvolvimento de páginas web utilizando JS
 
 ![2](https://github.com/user-attachments/assets/2c0d982d-7952-4ba7-9d76-fe7a9514893c)
 
-## Telas de Cadastro e Edição para Carros
 
-![3](https://github.com/user-attachments/assets/c3fccce1-c201-4be4-9d61-2911fdfcf878)
+

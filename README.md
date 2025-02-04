@@ -8,4 +8,5 @@ API em desenvolvimento de páginas web utilizando JS
 
 ## Telas de Login e inicial
 
-![Uploading Beige Minimalist Creative Agency Website Desktop Prototype (1).png…]()
+![Beige Minimalist Creative Agency Website Desktop Prototype](https://github.com/user-attachments/assets/df63d051-7526-41bb-a45b-6b05bc3ed138)
+
